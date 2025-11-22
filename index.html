@@ -1,0 +1,211 @@
+index.html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NAVMATE LITE OS — Precision Guidance for Real-World Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NAVMATE Lite OS delivers fast, disciplined structure for real-world work: operational documentation, regulatory requests, research & analysis, and structured narratives." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0D1A26" />
+  <!-- Favicon (inline SVG; no extra files) -->
+  <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><rect width="100%" height="100%" fill="%230D1A26"/><path d="M32 10 L36 32 L32 54 L28 32 Z" fill="%233BAFBF"/></svg>'>
+  <style>
+    /* --- Design Tokens --- */
+    :root{
+      --navy:#0D1A26;
+      --steel:#4A525A;
+      --slate:#6B747C;
+      --matte:#111417;
+      --cyan:#3BAFBF;       /* alt accent: #C69A4B */
+      --text:#E8EDF1;
+      --muted:#B9C0C6;
+      --card:#121A21;
+      --hair:#1E2830;
+      --radius:6px;
+      --gap:24px;
+      --gap-sm:14px;
+      --gap-lg:40px;
+      --focus:#9FDDE1;
+    }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within{scroll-behavior:auto}
+      *, *::before, *::after{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+    }
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--navy), var(--matte));
+      color:var(--text);
+      font: 16px/1.55 Inter, Roboto, "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    }
+
+    /* Accessibility: visible focus outlines */
+    a, button {outline: none}
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .wrap{max-width:1120px; margin:0 auto; padding: clamp(20px, 4vw, 40px);}
+    .skip-link{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{position:static; width:auto; height:auto; background:var(--cyan); color:#06272B; padding:8px 12px; border-radius:6px;}
+
+    header.hero{
+      display:grid; grid-template-columns: 120px 1fr; gap: var(--gap);
+      align-items:center; padding-bottom: var(--gap-lg); border-bottom:1px solid var(--hair);
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,0.15));
+    }
+    .hero img{
+      width:100%; height:auto; border-radius: var(--radius);
+      display:block; background:#0a0f14; object-fit:cover;
+    }
+    h1{margin:0 0 6px 0; font-weight:600; letter-spacing:0.2px; font-size: clamp(26px, 3.4vw, 36px);}
+    .sub{color:var(--muted); margin-top:6px;}
+    .cta-row{margin-top: var(--gap); display:flex; flex-wrap:wrap; gap:12px}
+    .btn{
+      appearance:none; border:1px solid var(--cyan); color:var(--text);
+      background:transparent; padding:10px 14px; border-radius:var(--radius);
+      font-weight:600; letter-spacing:0.2px; cursor:pointer; text-decoration:none;
+    }
+    .btn.secondary{border-color: var(--steel); color:#D9E3E9}
+
+    .grid{
+      display:grid; gap: var(--gap); grid-template-columns: repeat(12, 1fr); margin-top: var(--gap-lg);
+    }
+    .card{
+      grid-column: span 6; background: linear-gradient(180deg, var(--card), #0E151B);
+      border:1px solid var(--hair); border-radius: var(--radius); padding: var(--gap);
+    }
+    @media (max-width: 900px){ .card{grid-column: span 12} header.hero{grid-template-columns: 72px 1fr} }
+    @media (max-width: 420px){ header.hero img{ display:none; } }
+
+    .kicker{color: var(--cyan); font-size:12px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px}
+    h2{margin:0 0 10px 0; font-size: 18px; font-weight:700}
+    .mode{color: var(--slate); font-size:13px; margin-bottom:10px}
+    .p{margin:0 0 12px 0}
+    .list{margin: 10px 0 14px 0; padding-left: 18px; color: var(--muted)}
+    .mini{font-size: 12px; color: var(--muted)}
+    footer{
+      margin-top: var(--gap-lg); padding-top: var(--gap); border-top:1px solid var(--hair);
+      color: var(--slate); font-size: 13px;
+    }
+    .pill{
+      display:inline-block; padding:4px 8px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:12px; margin-right:6px
+    }
+    nav a { text-decoration: none }
+    main { display:block }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <img
+        src="/mnt/data/ChatGPT Image Nov 21, 2025, 05_35_41 PM.png"
+        alt="NAVMATE identity"
+        loading="eager"
+        decoding="async"
+      />
+      <div>
+        <h1>NAVMATE LITE OS</h1>
+        <p class="sub">Precision guidance for real-world work — fast, structured, mission-ready.</p>
+        <nav aria-label="Primary">
+          <div class="cta-row">
+            <a class="btn" href="#procedures">Design Clear Procedures</a>
+            <a class="btn" href="#requests">Build Precise Requests</a>
+            <a class="btn" href="#research">Organize Research & Analysis</a>
+            <a class="btn" href="#narrative">Develop Structured Narratives</a>
+            <a class="btn secondary" href="#mode">Stay in Lite Mode</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- BIG FOUR -->
+      <section id="procedures" class="grid" aria-labelledby="procedures-h">
+        <article class="card">
+          <div class="kicker">1 — Operational Documentation</div>
+          <h2 id="procedures-h">Design Clear Procedures</h2>
+          <div class="mode">Operational Mode: <strong>Structure Execution</strong></div>
+          <p class="p">Create mission-ready SOPs, workflows, task checklists, and internal policy guides. Turn complexity into ordered action.</p>
+          <ul class="list">
+            <li>Real-world: SOPs, Process Manuals, Workflows</li>
+            <li>Used by: Operations leads, safety officers, PMs</li>
+          </ul>
+          <a class="btn" href="#mode">Generate SOP (Lite)</a>
+        </article>
+
+        <article id="requests" class="card" aria-labelledby="requests-h">
+          <div class="kicker">2 — Regulatory & Information Requests</div>
+          <h2 id="requests-h">Build Precise Requests</h2>
+          <div class="mode">Operational Mode: <strong>Regulatory Transmission</strong></div>
+          <p class="p">Formulate clean, compliant, traceable records requests. Structure language for FOIA and state-level filings without clutter.</p>
+          <ul class="list">
+            <li>Real-world: FOIA, Public Records, Regulatory Filings</li>
+            <li>Used by: Legal, compliance, journalists, policy</li>
+          </ul>
+          <a class="btn" href="#mode">Create FOIA Request (Lite)</a>
+        </article>
+
+        <article id="research" class="card" aria-labelledby="research-h">
+          <div class="kicker">3 — Academic & Analytical Writing</div>
+          <h2 id="research-h">Organize Research & Analysis</h2>
+          <div class="mode">Operational Mode: <strong>Analytical Structuring</strong></div>
+          <p class="p">Convert fragmented notes into structured abstracts, briefs, and summaries suitable for academic, policy, or operational use.</p>
+          <ul class="list">
+            <li>Real-world: Research Papers, Policy Briefs, Exec Summaries</li>
+            <li>Used by: Students, analysts, consultants, think-tanks</li>
+          </ul>
+          <a class="btn" href="#mode">Draft Research Summary (Lite)</a>
+        </article>
+
+        <article id="narrative" class="card" aria-labelledby="narrative-h">
+          <div class="kicker">4 — Creative & Strategic Story Development</div>
+          <h2 id="narrative-h">Develop Structured Narratives</h2>
+          <div class="mode">Operational Mode: <strong>Strategic Story Architecture</strong></div>
+          <p class="p">Shape story bibles, outlines, worldbuilding, and character dossiers with logic, clarity, and continuity.</p>
+          <ul class="list">
+            <li>Real-world: Story Bibles, Character Sheets, Campaign Guides</li>
+            <li>Used by: Writers, game designers, creative directors</li>
+          </ul>
+          <a class="btn" href="#mode">Generate Character Dossier (Lite)</a>
+        </article>
+      </section>
+
+      <!-- MODE / ETHOS -->
+      <section id="mode" class="grid" style="margin-top:var(--gap-lg)" aria-labelledby="mode-h">
+        <article class="card" style="grid-column: span 12">
+          <div class="kicker">Mode Control</div>
+          <h2 id="mode-h">Operate in Lite or Switch to Core</h2>
+          <p class="p">Lite Mode: concise, single-pass outputs; minimal ceremony. Core Mode: full sequencing, assumption frameworks, and handover blocks.</p>
+          <div class="cta-row">
+            <span class="pill">Calm Under Pressure</span>
+            <span class="pill">Structured Execution</span>
+            <span class="pill">Low-Glare Language</span>
+          </div>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn" href="#procedures" aria-label="Stay in Lite Mode and view procedures">Stay in Lite Mode</a>
+            <a class="btn secondary" href="#procedures" aria-label="Switch to Core Mode (conceptual link)">Switch to Core Mode</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="mini">
+        Visual identity follows a restrained, mission-ready palette (Deep Navy #0D1A26, Steel #4A525A, Slate #6B747C, Accent #3BAFBF).
+        Accents are used sparingly for actionable elements only. NAVMATE does not process proprietary or sensitive data unless explicitly provided and authorized.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
